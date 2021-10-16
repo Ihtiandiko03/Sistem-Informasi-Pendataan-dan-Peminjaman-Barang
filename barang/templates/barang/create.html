@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}
+	{{title}}
+{%endblock title%}
+
+{%block content%}
+	<h1>{{title}}</h1>
+	<form method="POST">
+		{% csrf_token %}
+		<table>
+			{{akun_form.as_table}}
+		</table>
+		<button type="Submit">Kirim</button>
+	</form>
+{% endblock content %}
