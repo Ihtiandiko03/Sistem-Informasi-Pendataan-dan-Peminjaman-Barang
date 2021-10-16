@@ -1,0 +1,69 @@
+<head>
+<style>
+    @page {
+        size: a4 portrait;
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+        }
+        @frame content_frame {          /* Content Frame */
+            left: 50pt; width: 512pt; top: 90pt; height: 632pt;
+        }
+        @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <!-- Content for Static Frame 'header_frame' -->
+    <div id="header_content">
+        <center><h1>Tabel Peminjaman Barang</h1></center>
+    </div>
+
+    <!-- Content for Static Frame 'footer_frame' -->
+    <div id="footer_content">(Copyright Kelompok 9) - page <pdf:pagenumber>
+        of <pdf:pagecount>
+    </div>
+
+    <!-- HTML Content -->
+    <table>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nama Pegawai</th>
+        <th scope="col">Tanggal Pinjam</th>
+        <th scope="col">Tanggal Kembali</th>
+        <th scope="col">Nama Barang</th>
+        <th scope="col">Jumlah</th>
+        <th scope="col">Kondisi</th>
+        <th scope="col">Ruang</th>
+        <th scope="col">Gedung</th>
+        <th scope="col">BAP</th>
+      </tr>
+    </thead>
+    <hr>
+    <tbody>   
+      {% for Peminjaman in Peminjaman %}
+        <tr>
+          <th scope="row">{{forloop.counter}}</th>
+          <td>{{Peminjaman.0}}</td>
+          <td>{{Peminjaman.1}}</td>
+          <td>{{Peminjaman.2}}</td>
+          <td>{{Peminjaman.4}}</td>
+          <td>{{Peminjaman.5}}</td>
+          <td>{{Peminjaman.6}}</td>
+          <td>{{Peminjaman.7}}</td>
+          <td>{{Peminjaman.8}}</td>
+          <td>{{Peminjaman.9}}</td>
+          <td>{{Peminjaman.3}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+    <hr>
+
+</body>
+</html>
